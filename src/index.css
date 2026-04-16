@@ -1,1 +1,44 @@
 @import "tailwindcss";
+
+* {
+  padding: 5px;
+  box-sizing: border-box;
+  font-family: "Courier New";
+  color: #fff;
+}
+
+body {
+  height: 100%;
+  width: 100%;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background-color: #111;
+}
+
+.parent {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
+}
+h1 {
+  font-size: 50px;
+  color: white;
+}
+
+.card {
+  width: 300px;
+  border: 1px solid white;
+  padding: 20px;
+  text-align: center;
+  border-radius: 20px;
+  background-color: #333;
+  color: aliceblue;
+}
+
+.card button {
+  padding: 5px 10px;
+  background-color: aqua;
+  color: green;
+  border-radius: 5px;
+}
