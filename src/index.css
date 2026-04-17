@@ -1,4 +1,4 @@
-@import "tailwindcss";
+/* @import "tailwindcss"; */
 
 * {
   padding: 5px;
@@ -27,13 +27,18 @@ h1 {
 }
 
 .card {
-  width: 300px;
-  border: 1px solid white;
+  width: 400px;
+  border: 2px solid white;
   padding: 20px;
   text-align: center;
   border-radius: 20px;
   background-color: #333;
   color: aliceblue;
+}
+
+.card img {
+  width: 200px;
+  height: 200px;
 }
 
 .card button {
@@ -42,3 +47,4 @@ h1 {
   color: green;
   border-radius: 5px;
 }
+ 
