@@ -1,5 +1,5 @@
-/* @import "tailwindcss"; */
-
+@import "tailwindcss";
+/*
 * {
   padding: 5px;
   box-sizing: border-box;
@@ -74,4 +74,17 @@ button {
 .offline {
   color: red;
   font-weight: bold;
-}
+} */
+
+/* for form */
+
+/* form {
+  width: 400px;
+  padding: 10px;
+  margin: 0 auto;
+  text-align: center;
+  background-color: black;
+  border-radius: 10px;
+  color: white;
+} */
+
