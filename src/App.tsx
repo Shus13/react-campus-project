@@ -1,5 +1,6 @@
 import { useState } from "react";
 import ProfileCard from "./components/ProfileCard";
+import Counter from "./components/Counter";
 
 const arr = [
   {
@@ -27,7 +28,6 @@ const arr = [
 
 const App = () => {
   const [users, setUsers] = useState(arr);
-  const [isOn, setIsOn] = useState(false);
 
   const toggleStatus = (index: number) => {
     const updated = users.map((user, i) => {
@@ -40,6 +40,7 @@ const App = () => {
   };
 
   return (
+    <>
     <div className="parent">
       {users.map((elem, index) => (
         <ProfileCard
@@ -52,6 +53,10 @@ const App = () => {
         />
       ))}
     </div>
+    <div>
+      <Counter />
+    </div>
+    </>
   );
 };
 
