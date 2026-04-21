@@ -1,4 +1,4 @@
-import { useForm } from "react-hook-form";
+import { useForm, type FromSubscribe } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 
@@ -6,7 +6,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 const schema = z
   .object({
     name: z.string().min(3, "Name must be at least 3 characters"),
-    email: z.string().email("Invalid email address"),
+    email: z.email("Invalid email address"),
     password: z.string().min(6, "Password must be at least 6 characters"),
     confirmPassword: z.string(),
   })
@@ -14,25 +14,25 @@ const schema = z
     message: "Passwords do not match",
     path: ["confirmPassword"],
   });
+export type FormDataType = z.infer<typeof schema>;
 
 const RegistrationForm = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm({
+  } = useForm<FormDataType>({
     resolver: zodResolver(schema),
   });
 
   // Submit handler
-  const onSubmit = (data) => {
+  const onSubmit = (data: FormDataType) => {
     console.log("Form Data:", data);
   };
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
       <div className="bg-white shadow-lg rounded-2xl p-8 w-full max-w-md">
-        
         <h2 className="text-2xl font-bold text-gray-800 text-center">
           Create Account
         </h2>
@@ -41,7 +41,6 @@ const RegistrationForm = () => {
         </p>
 
         <form onSubmit={handleSubmit(onSubmit)} className="mt-6 space-y-4">
-
           {/* Name */}
           <div>
             <label className="block text-gray-700 font-medium mb-1">
@@ -53,9 +52,7 @@ const RegistrationForm = () => {
               className="w-full px-4 py-2 border rounded-lg"
             />
             {errors.name && (
-              <p className="text-red-500 text-sm">
-                {errors.name.message}
-              </p>
+              <p className="text-red-500 text-sm">{errors.name.message}</p>
             )}
           </div>
 
@@ -70,9 +67,7 @@ const RegistrationForm = () => {
               className="w-full px-4 py-2 border rounded-lg"
             />
             {errors.email && (
-              <p className="text-red-500 text-sm">
-                {errors.email.message}
-              </p>
+              <p className="text-red-500 text-sm">{errors.email.message}</p>
             )}
           </div>
 
@@ -88,9 +83,7 @@ const RegistrationForm = () => {
               className="w-full px-4 py-2 border rounded-lg"
             />
             {errors.password && (
-              <p className="text-red-500 text-sm">
-                {errors.password.message}
-              </p>
+              <p className="text-red-500 text-sm">{errors.password.message}</p>
             )}
           </div>
 
@@ -119,7 +112,6 @@ const RegistrationForm = () => {
           >
             Register
           </button>
-
         </form>
       </div>
     </div>

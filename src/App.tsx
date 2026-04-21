@@ -2,7 +2,8 @@
 // import ProfileCard from "./components/ProfileCard";
 // import Counter from "./components/Counter";
 
-import RegistrationFrom from "./components/RegistrationFrom";
+import FetchAPI from "./components/FetchAPI";
+// import RegistrationFrom from "./components/RegistrationFrom";
 
 // import Form from "./components/Form";
 
@@ -63,8 +64,11 @@ const App = () => {
       {/* <div>
         <Form />
       </div> */}
-      <div>
+      {/* <div>
         <RegistrationFrom />
+      </div> */}
+      <div>
+        <FetchAPI />
       </div>
     </>
   );
