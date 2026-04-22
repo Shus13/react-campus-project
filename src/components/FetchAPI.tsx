@@ -48,13 +48,15 @@
 // Submit button  use gareyera API call gareyera data fetch garda
 
 import { useState } from "react";
+import type { Root2 } from "../types/CountryAPIResponse";
 
 const CountryApp = () => {
   const [country, setCountry] = useState(""); //user ley select gareyko country store garna
-  const [data, setData] = useState(null); // API bata ayera data yesma basalna
+  const [data, setData] = useState<null | Root2>(null); // API bata ayera data yesma basalna
   const [loading, setLoading] = useState(false); // api call hudai xa vaneyra dekhauna
 
   const countries = ["nepal", "india", "japan", "usa"];
+  
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -70,7 +72,7 @@ const CountryApp = () => {
       const res = await fetch(`https://restcountries.com/v3.1/name/${country}`);
       const result = await res.json();
 
-      console.log(result);
+
       setData(result[0]);
     } catch (err) {
       console.log(err);
@@ -79,7 +81,11 @@ const CountryApp = () => {
         setLoading(false);
       }, 5000);
     }
+
+
   };
+
+  console.log(data && data.flag, "data")
 
   return (
     <div className="min-h-screen bg-gray-900 text-white flex flex-col items-center justify-center p-5">

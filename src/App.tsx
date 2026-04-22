@@ -2,7 +2,9 @@
 // import ProfileCard from "./components/ProfileCard";
 // import Counter from "./components/Counter";
 
+import { Toaster } from "sonner";
 import FetchAPI from "./components/FetchAPI";
+import TodoApp from "./components/TodoApp";
 // import RegistrationFrom from "./components/RegistrationFrom";
 
 // import Form from "./components/Form";
@@ -67,9 +69,13 @@ const App = () => {
       {/* <div>
         <RegistrationFrom />
       </div> */}
-      <div>
+      {/* <div>
         <FetchAPI />
-      </div>
+      </div> */}
+
+      <Toaster position="top-right" richColors />
+      <TodoApp />
+
     </>
   );
 };
